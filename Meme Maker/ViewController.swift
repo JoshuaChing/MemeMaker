@@ -12,6 +12,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     @IBOutlet var imagePickerButton: UIBarButtonItem!
     @IBOutlet var imageView: UIImageView!
+    @IBOutlet var cameraButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         self.presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    @IBAction func openCamera(){
+        print("camera clicked")
     }
 
 }
