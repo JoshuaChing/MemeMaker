@@ -17,6 +17,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
+        cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(.Camera)
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,15 +33,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         picker.dismissViewControllerAnimated(true, completion: nil)
     }
 
-    @IBAction func openImagePicker(){
+    func selectImage(sourceType: UIImagePickerControllerSourceType){
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
+        imagePicker.sourceType = sourceType
         self.presentViewController(imagePicker, animated: true, completion: nil)
     }
     
-    @IBAction func openCamera(){
-        print("camera clicked")
+    @IBAction func openImagePicker(){
+        selectImage(.PhotoLibrary)
     }
+
+    @IBAction func openCamera(){
+        selectImage(.Camera)
+    }
+
 
 }
 
