@@ -8,9 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet var imagePickerButton: UIBarButtonItem!
+    @IBOutlet var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +23,16 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage {
+            self.imageView.image = image;
+        }
+        picker.dismissViewControllerAnimated(true, completion: nil)
+    }
+
     @IBAction func openImagePicker(){
         let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
         self.presentViewController(imagePicker, animated: true, completion: nil)
     }
 
