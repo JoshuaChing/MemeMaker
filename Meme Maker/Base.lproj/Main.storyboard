@@ -29,17 +29,18 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fMS-iT-84Q">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fMS-iT-84Q">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="20" y="236" width="240" height="128"/>
-                                </variation>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="eWc-qg-7UP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="9bV-eL-zcq"/>
+                            <constraint firstItem="fMS-iT-84Q" firstAttribute="leading" secondItem="eWc-qg-7UP" secondAttribute="leading" id="DOp-ex-PcW"/>
+                            <constraint firstItem="fMS-iT-84Q" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Der-lw-y89"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eWc-qg-7UP" secondAttribute="trailing" constant="-20" id="c0F-7f-sFS"/>
+                            <constraint firstItem="fMS-iT-84Q" firstAttribute="trailing" secondItem="eWc-qg-7UP" secondAttribute="trailing" id="jJ6-wO-glq"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fMS-iT-84Q" secondAttribute="bottom" constant="44" id="ovB-fc-8D8"/>
                             <constraint firstItem="eWc-qg-7UP" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="wfc-Ni-Yc1"/>
                         </constraints>
                         <variation key="default">
@@ -48,9 +49,13 @@
                                 <exclude reference="fMS-iT-84Q"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="DOp-ex-PcW"/>
+                                <exclude reference="Der-lw-y89"/>
+                                <exclude reference="jJ6-wO-glq"/>
                                 <exclude reference="9bV-eL-zcq"/>
                                 <exclude reference="c0F-7f-sFS"/>
                                 <exclude reference="wfc-Ni-Yc1"/>
+                                <exclude reference="ovB-fc-8D8"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -59,9 +64,13 @@
                                 <include reference="fMS-iT-84Q"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="DOp-ex-PcW"/>
+                                <include reference="Der-lw-y89"/>
+                                <include reference="jJ6-wO-glq"/>
                                 <include reference="9bV-eL-zcq"/>
                                 <include reference="c0F-7f-sFS"/>
                                 <include reference="wfc-Ni-Yc1"/>
+                                <include reference="ovB-fc-8D8"/>
                             </mask>
                         </variation>
                     </view>
