@@ -15,6 +15,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet var cameraButton: UIBarButtonItem!
     @IBOutlet var topTextField: UITextField!
     @IBOutlet var bottomTextField: UITextField!
+    @IBOutlet var resetButton: UIBarButtonItem!
     
     let topTextFieldDefaultText = "TOP TEXT"
     let bottomTextFieldDefaultText = "BOTTOM TEXT"
@@ -69,6 +70,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     @IBAction func openCamera(){
         selectImage(.Camera)
+    }
+    
+    @IBAction func resetMeme(){
+        self.imageView.image = UIImage()
+        self.topTextField.text = topTextFieldDefaultText
+        self.bottomTextField.text = bottomTextFieldDefaultText
     }
 
 
