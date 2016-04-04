@@ -13,12 +13,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet var imagePickerButton: UIBarButtonItem!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var cameraButton: UIBarButtonItem!
+    @IBOutlet var topTextField: UITextField!
+    @IBOutlet var bottomTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(.Camera)
+        topTextField.text = "TOP TEXT"
+        bottomTextField.text = "BOTTOM TEXT"
     }
 
     override func didReceiveMemoryWarning() {
