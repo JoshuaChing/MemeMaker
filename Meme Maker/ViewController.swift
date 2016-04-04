@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet var imagePickerButton: UIBarButtonItem!
     @IBOutlet var imageView: UIImageView!
@@ -16,18 +16,37 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet var topTextField: UITextField!
     @IBOutlet var bottomTextField: UITextField!
     
+    let topTextFieldDefaultText = "TOP TEXT"
+    let bottomTextFieldDefaultText = "BOTTOM TEXT"
+    let emptyText = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(.Camera)
-        topTextField.text = "TOP TEXT"
-        bottomTextField.text = "BOTTOM TEXT"
+
+        topTextField.text = topTextFieldDefaultText
+        bottomTextField.text = bottomTextFieldDefaultText
+        topTextField.delegate = self
+        bottomTextField.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        if textField.text == topTextFieldDefaultText || textField.text == bottomTextFieldDefaultText{
+            textField.text = emptyText
+        }
+        return true
+    }
+
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
