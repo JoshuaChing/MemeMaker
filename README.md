@@ -1,7 +1,7 @@
 Meme Maker
 ==================
 
-This app creates memes and allows the user to share or save them.
+This app create memes and allow the user to share or save them.
 
 This app was made to practice iOS by following this online course:
 
