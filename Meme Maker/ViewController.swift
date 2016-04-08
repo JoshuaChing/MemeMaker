@@ -16,6 +16,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet var topTextField: UITextField!
     @IBOutlet var bottomTextField: UITextField!
     @IBOutlet var resetButton: UIBarButtonItem!
+    @IBOutlet var shareButton: UIBarButtonItem!
+    @IBOutlet var toolBar: UIToolbar!
     
     let topTextFieldDefaultText = "TOP TEXT"
     let bottomTextFieldDefaultText = "BOTTOM TEXT"
@@ -98,6 +100,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return keyboardSize.CGRectValue().height
     }
     
+    func createMemeImage() -> UIImage{
+        self.toolBar.hidden = true
+        self.view.backgroundColor = UIColor.blackColor()
+        
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        
+        view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        
+        self.toolBar.hidden = false
+        self.view.backgroundColor = UIColor.whiteColor()
+        
+        return memedImage
+    }
+    
     @IBAction func openImagePicker(){
         selectImage(.PhotoLibrary)
     }
@@ -110,6 +129,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.imageView.image = UIImage()
         self.topTextField.text = topTextFieldDefaultText
         self.bottomTextField.text = bottomTextFieldDefaultText
+    }
+    
+    @IBAction func share(){
+        let image = createMemeImage()
+        let toLaunch = UIActivityViewController(activityItems: [image],applicationActivities: nil)
+        self.presentViewController(toLaunch, animated: true, completion: nil)
+        
     }
 
 

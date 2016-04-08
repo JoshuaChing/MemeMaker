@@ -22,7 +22,11 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eWc-qg-7UP">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
-                                    <barButtonItem title="Share" id="WAo-w4-wzC"/>
+                                    <barButtonItem title="Share" id="WAo-w4-wzC">
+                                        <connections>
+                                            <action selector="share" destination="BYZ-38-t0r" id="Xi8-7D-MXT"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="SPW-2k-6dC"/>
                                     <barButtonItem title="Photos" id="Yfm-Cd-zmI">
                                         <connections>
@@ -157,6 +161,8 @@
                         <outlet property="imagePickerButton" destination="Yfm-Cd-zmI" id="xRd-D4-SMz"/>
                         <outlet property="imageView" destination="fMS-iT-84Q" id="5Sr-iv-P8n"/>
                         <outlet property="resetButton" destination="VHC-rD-iBf" id="94b-Ob-Iw0"/>
+                        <outlet property="shareButton" destination="WAo-w4-wzC" id="rLW-87-AKg"/>
+                        <outlet property="toolBar" destination="eWc-qg-7UP" id="5Wn-jU-N1a"/>
                         <outlet property="topTextField" destination="Ou5-qI-oVE" id="YC6-KR-znb"/>
                     </connections>
                 </viewController>
