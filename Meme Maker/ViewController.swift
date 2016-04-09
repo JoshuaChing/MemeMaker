@@ -22,6 +22,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     let topTextFieldDefaultText = "TOP TEXT"
     let bottomTextFieldDefaultText = "BOTTOM TEXT"
     let emptyText = ""
+    
+    var isKeyboardVisible = false;
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,10 +89,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func shiftViewForKeyboard(notification: NSNotification){
+        if (isKeyboardVisible) {
+            return
+        }
+        isKeyboardVisible = true
         self.view.frame.origin.y -= getKeyboardHeight(notification)
     }
     
     func unshiftViewForKeyboard(notification: NSNotification){
+        if (!isKeyboardVisible) {
+            return
+        }
+        isKeyboardVisible = false
         self.view.frame.origin.y += getKeyboardHeight(notification)
     }
     
