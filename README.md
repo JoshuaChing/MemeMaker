@@ -7,4 +7,6 @@ This app was made to practice iOS by following this online course:
 
 https://www.udacity.com/course/uikit-fundamentals--ud788
 
+![](https://raw.githubusercontent.com/JoshuaChing/MemeMaker/master/screenshots/screenshot3.png)
+
 Enjoy!
